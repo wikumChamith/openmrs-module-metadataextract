@@ -7,15 +7,14 @@
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
-package org.openmrs.module.metadata.extract;
+package org.openmrs.module.metadata.extract.api.export;
 
-import org.springframework.stereotype.Component;
+import org.openmrs.OpenmrsObject;
 
-/**
- * Contains module's config.
- */
-@Component("metadata.extract.MetadataExtractConfig")
-public class MetadataExtractConfig {
+public abstract class BaseLineExporter<T extends OpenmrsObject> {
 	
-	public final static String MODULE_PRIVILEGE = "Metadata Extract Privilege";
+	public static final String VERSION_LHS = "_version:";
+	
+	public abstract void export(T instance, ExportLine line);
+	
 }
